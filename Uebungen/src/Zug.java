@@ -90,6 +90,7 @@ public class Zug {
             if(waggons.size()>=1){
                if(waggons.get(waggons.size()-1).gibZuladung() == 0){
                    waggons.remove(waggons.size()-1);
+                   System.out.println("Waggon wurde abgekopplet: " + waggons.size());
                } else {
                    System.out.println("Bitte entladen den letzten Waggon bevor du Ihn abkoppeln möchtest");
                }
@@ -121,7 +122,7 @@ public class Zug {
             }
         }
         if (gewicht != 0){
-            System.out.println("Es konnte nicht die gesamte Ware verladen werden");
+            System.out.println("Es konnte nicht die gesamte Ware verladen werden. Rest: " + gewicht);
         }
         return gewicht;
     }
@@ -145,6 +146,28 @@ public class Zug {
      * Aendert die Geschwindigkeit des Zuges auf den uebergebenen Wert.
      * @param geschwindigkeit Geschwindigkeitsdelta.
      */
-    // public void geschwindigkeitAnpassen(int geschwindigkeit)
+     public void geschwindigkeitAnpassen(int geschwindigkeit){
+         this.lok.geschwindigkeitAnpassen(Math.max(0, this.lok.gibGeschwindigkeit()+geschwindigkeit));
+     }
+
+    public void printZug(){
+         System.out.println("Geschindigkeit: \t" + lok.gibGeschwindigkeit());
+         System.out.println("Gesamtgewicht: \t" + gibGesamtgewicht());
+         System.out.println("Anzahl Waggons: \t" + anzahlWaggons());
+
+    }
+
+    public  void printWaggons(){
+
+        for (int i = 0; i < waggons.size(); i++) {
+            Waggon waggon = waggons.get(i);
+            System.out.println("-------------------------");
+            System.out.println("Waggon " + i);
+            System.out.println("Ware: " + waggon.gibWare());
+           // System.out.println("Kapazität"+ waggon.);
+            System.out.println("Ladungsmenge: " + waggon.gibZuladung());
+        }
+        System.out.println("-------------------------");
+    }
 
 }

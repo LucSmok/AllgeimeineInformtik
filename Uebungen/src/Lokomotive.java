@@ -37,7 +37,7 @@ public class Lokomotive {
      * annehmen soll
      */
      public void geschwindigkeitAnpassen(int geschwindigkeit){
-         if(geschwindigkeit < hoechstgeschwindigkeit && geschwindigkeit > 0){
+         if(geschwindigkeit < hoechstgeschwindigkeit && geschwindigkeit >= 0){
              this.geschwindigkeit = geschwindigkeit;
          }else{
              System.out.println("Bite geben Sie eine gültige Geschwindigkeit ein. Ihre Eingabe konnte nicht übernommen werden");

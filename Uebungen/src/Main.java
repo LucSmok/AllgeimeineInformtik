@@ -1,14 +1,57 @@
 public class Main {
     public static void main(String[] args) {
-
+        
+        //Übung 3
+        startZugStuff();
         //Übung 2
-        startBurgerStuff();
-        startRechteckStuff();
+        //startBurgerStuff();
+        //startRechteckStuff();
         //startAufgabe1();
 
         //Übung 1
         //startAufzugStuff();
         //startLiedStuff();
+
+    }
+
+    private static void startZugStuff() {
+        Zug zug = new Zug(1500);
+        zug.printZug();
+
+        zug.geschwindigkeitAnpassen(140);
+        zug.printZug();
+        zug.geschwindigkeitAnpassen(100);
+        zug.printZug();
+        zug.geschwindigkeitAnpassen(-100);
+        for (int i = 0; i < 10; i++) {
+            zug.waggonHinzu(10);
+        }
+        zug.printWaggons();
+
+        String[] ladungen =  {"Korn", "Kohle", "Autos", "Computer"};
+        int[] mengeen = {8 ,16, 40, 12};
+
+        for (int i = 0; i < ladungen.length; i++) {
+            zug.beladen(ladungen[i], mengeen[i]);
+        }
+
+        zug.printZug();
+        zug.printWaggons();
+
+
+        System.out.println("---------------------------");
+        System.out.println("Mittlerer Waggon:");
+        if (zug.mittlererWaggon() != null) {
+            System.out.println(zug.mittlererWaggon().gibWare());
+        }
+        System.out.println("---------------------------");
+
+        for (int i = 0; i < 20; i++) {
+            zug.abkoppeln();
+        }
+        zug.printZug();
+
+
 
     }
 
