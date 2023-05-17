@@ -40,7 +40,7 @@ public class Burger {
     // Methode zur Berechnung der Mehrwertsteuer des Burgers
     public int gibMehrwertsteuer() {
         // Berechnung der Mehrwertsteuer aus dem Gesamtpreis des Burgers
-        return (int) (gibPreis() * (1-(1/1.19)));
+        return (int) (gibPreis() * (1-(1/1.11))+0.5); //+0.5 damit immer mathematisch korrekt gerundet wird.
     }
 
     // Methode zur Überprüfung, ob der Burger vegetarisch ist

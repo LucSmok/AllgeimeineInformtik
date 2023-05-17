@@ -1,8 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        
+        //Übung 4
+        startSchleifenStuff();
         //Übung 3
-        startZugStuff();
+        //startZugStuff();
         //Übung 2
         //startBurgerStuff();
         //startRechteckStuff();
@@ -11,6 +12,14 @@ public class Main {
         //Übung 1
         //startAufzugStuff();
         //startLiedStuff();
+
+    }
+
+    private static void startSchleifenStuff() {
+        Integer[] list = {1, 2, 3, 4};
+        Schleifen schleifen = new Schleifen(list);
+        System.out.println(schleifen.summiereBis(3));
+        System.out.println(schleifen.summiereBisAlt(3));
 
     }
 
@@ -39,17 +48,19 @@ public class Main {
         zug.printWaggons();
 
 
+
+
+        for (int i = 0; i < 20; i++) {
+            zug.abkoppeln();
+        }
+        zug.printZug();
+
         System.out.println("---------------------------");
         System.out.println("Mittlerer Waggon:");
         if (zug.mittlererWaggon() != null) {
             System.out.println(zug.mittlererWaggon().gibWare());
         }
         System.out.println("---------------------------");
-
-        for (int i = 0; i < 20; i++) {
-            zug.abkoppeln();
-        }
-        zug.printZug();
 
 
 
@@ -61,7 +72,8 @@ public class Main {
         System.out.println(5.0/3); //1.6666666666666667  wer beschränkt double oder Sys.out ???
         System.out.println(1 > 0 || !(!(7 < (28 - (1358 - 1337))) && true)); // reicht aus für true wegen oder
         System.out.println(1 > 0 || !(!(7 < (28 - (1358 - 1337))) && true) || (42 - (256 - 42) > (1337 - (42 + 1256))));
-
+        //Aufzug aufzug;
+        //System.out.print(aufzug == null);
         //Übung 1
     }
 
@@ -114,7 +126,7 @@ public class Main {
         Burger burger = new Burger();
 
         burger.bestellen(100);
-        burger.setBun(new Bun(600, "Cobe Beef"));
+        burger.setPatty(new Patty(600, false, 220));
         burger.setSauce(new Sauce(150, "Käse", false));
         burger.setBun(new Bun(300, "Brioche"));
         burger.bestellen(250);

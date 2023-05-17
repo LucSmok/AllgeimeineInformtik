@@ -73,7 +73,7 @@ public class Zug {
         Waggon newWaggon = new Waggon(kapazitaet);
 
         if(zugStehtMitMeldung()){
-            if(this.gibGesamtgewicht() + newWaggon.gibGesamtgewicht() <= lok.gibZugkraft()){
+            if(this.gibGesamtgewicht() + newWaggon.gibGesamtgewicht() <= this.lok.gibZugkraft()){
                 waggons.add(newWaggon);
             }else{
                 System.out.println("Dein Waggon konnte nicht hinzugefügt werden, das Gesamtgewicht würde überschritten werden.");
@@ -134,8 +134,8 @@ public class Zug {
      * @return Der mittlere Waggon oder null.
      */
     public Waggon mittlererWaggon(){
-        if(!(waggons.size()%2==0)){
-            return waggons.get(waggons.size()/2+1);
+        if(waggons.size()%2!=0){
+            return waggons.get(waggons.size()/2);
         }else {return
         null;
         }
